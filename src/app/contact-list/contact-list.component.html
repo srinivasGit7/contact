@@ -1,0 +1,39 @@
+<div class="main">
+<div class="box">
+
+
+
+    <table>
+        <div class="serach">
+    <h1>Contacts</h1>
+    <form class="searchBar">
+    <!-- <input class="form-control" name="first_name" [(ngModel)]="first_name" (ngModelChange)="Search()"  placeholder="search" input> -->
+    <input matInput (keyup)="applyFilter($event)" placeholder="Serach" input>
+</form>
+    </div>  
+        <ul class="list-group" id="user-list">
+            <li class="list-group-item" *ngFor="let user of users ">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="row">
+                            <div class="col-md-4 col-4 user-img text-center pt-1">
+                                <img [src]="user.avatar" alt="Seth Frazier" class="img-responsive img-circle rounded-circle" />
+                            </div>
+                            <div class="col-md-8 col-8">
+                                <h5 class="font-weight-bold mb-1">{{user.first_name}} {{user.last_name}}</h5>                              
+                        
+                                <div class="user-detail">
+                                    <p class="m-0"><i class="fa fa-envelope mr-1" aria-hidden="true"></i> {{user.email}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+<!-- <pagination-controls (pageChange)="p = &event"></pagination-controls> -->
+    </table>
+</div>
+
+</div>
